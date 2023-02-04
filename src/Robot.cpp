@@ -100,6 +100,6 @@ void Robot::drive(int power, int turn) {
          int power = Robot::Controller1.get_analog(ANALOG_LEFT_Y);
          int turn = Robot::Controller1.get_analog(ANALOG_RIGHT_X);
          drive(power, turn);
-        }
+      }
     }
 }
