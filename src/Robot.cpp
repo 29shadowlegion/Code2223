@@ -96,18 +96,10 @@ void Robot::drive(int power, int turn) {
        Robot::Spinner1 = 0;
        Robot::Spinner2 = 0;
      }
-}
-}
-/*
-
- if(Robot::Controller1.get_digital(DIGITAL_X)) {
-
+     if(Robot::Controller1.get_digital(DIGITAL_X)) {
          int power = Robot::Controller1.get_analog(ANALOG_LEFT_Y);
          int turn = Robot::Controller1.get_analog(ANALOG_RIGHT_X);
          drive(power, turn);
-       }
-
-
-
+        }
+    }
 }
-*/
