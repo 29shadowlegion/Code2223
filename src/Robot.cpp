@@ -70,8 +70,18 @@ void Robot::drive(int power, int turn) {
     else {
       Robot::pneumatics.set_value(0);
     }
-
-
+/*
+    if(Robot::Controller1.get_digital(DIGITAL_X)) {
+      Robot::Spinner1 = -100;
+      Robot::Spinner2 = -100;
+      delay(100); // need to test this number
+      Robot::pneumatics.set_value(1);
+      delay(100);
+      Robot::pneumatics.set_value(0);
+      Robot::Spinner1 = 0;
+      Robot::Spinner2 = 0;
+    }
+*/
     if(Controller1.get_digital(DIGITAL_R1)) {
       Robot::Intake = 127;
       Robot::Roller = 100;
