@@ -63,6 +63,7 @@ void Robot::drive(int power, int turn) {
     else {
       Robot::Intake = 0;
     }
+
     if(Robot::Controller1.get_digital(DIGITAL_A)) {
 
       Robot::pneumatics.set_value(1);
@@ -70,6 +71,12 @@ void Robot::drive(int power, int turn) {
     else {
       Robot::pneumatics.set_value(0);
     }
+
+    if(Robot::Controller1.get_digital(DIGITAL_B)) {
+
+      Robot::pneumatics.set_value(0);
+    }
+
 /*
     if(Robot::Controller1.get_digital(DIGITAL_X)) {
       Robot::Spinner1 = -100;
@@ -99,8 +106,8 @@ void Robot::drive(int power, int turn) {
     }
 
     if(Controller1.get_digital(DIGITAL_L2)) {
-       Robot::Spinner1 = -127;
-       Robot::Spinner2 = -127;
+       Robot::Spinner1 = -100;
+       Robot::Spinner2 = -100;
      }
      else {
        Robot::Spinner1 = 0;

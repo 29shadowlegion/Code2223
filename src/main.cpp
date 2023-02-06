@@ -83,9 +83,9 @@ void autonomous() {
 
  /* Call spinner for ? seconds, be brief as I want very little distance. Need to test*/
 
- Robot::Spinner1 = -100;
- Robot::Spinner2 = -100;
- delay(100); // need to test this number
+ Robot::Spinner1 = -180;
+ Robot::Spinner2 = -180;
+ delay(300); // need to test this number
  Robot::pneumatics.set_value(1);
  delay(100);
  Robot::pneumatics.set_value(0);
