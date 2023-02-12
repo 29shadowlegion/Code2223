@@ -50,6 +50,8 @@ void Robot::drive(int power, int turn) {
   Robot::RightFrontWheel = -power + turn;
 
 }
+int booper;
+
 
   void Robot::driveControl(void *ptr) {
   while(true)
@@ -63,18 +65,38 @@ void Robot::drive(int power, int turn) {
     else {
       Robot::Intake = 0;
     }
+    int booper;
 
-    if(Robot::Controller1.get_digital(DIGITAL_A)) {
+    (Robot::Controller1.get_digital(DIGITAL_A) && booper == 1.0); {
+    }
+
+      // 4-loop one button function
+      // extending
+      Robot::pneumatics.set_value(0);
+      booper = 2;
+      }
+       booper = 3;
+       if (!Robot::Controller1.get_digital(DIGITAL_LEFT) && booper == 2.0) {
+     }
+     if (Robot::Controller1.get_digital(DIGITAL_LEFT) && booper == 3.0) {
+      // retracting
+      Robot::pneumatics.set_value(1);
+      booper = 4;
+     }
+     if (!Robot::Controller1.get_digital(DIGITAL_LEFT) && booper == 4.0) {
+     booper = 1;
+     }
+/*    if(Robot::Controller1.get_digital(DIGITAL_A)) {
 
       Robot::pneumatics.set_value(1);
     }
     else {
       Robot::pneumatics.set_value(0);
     }
-
+*/
     if(Robot::Controller1.get_digital(DIGITAL_B)) {
 
-      Robot::pneumatics.set_value(0);
+      ;
     }
 
 /*
