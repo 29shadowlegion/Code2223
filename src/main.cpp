@@ -83,6 +83,10 @@ void autonomous() {
 
  /* Call spinner for ? seconds, be brief as I want very little distance. Need to test*/
 
+/*
+
+
+
  Robot::Spinner1 = -180;
  Robot::Spinner2 = -180;
  delay(300); // need to test this number
@@ -91,7 +95,7 @@ void autonomous() {
  Robot::pneumatics.set_value(0);
  Robot::Spinner1 = 0;
  Robot::Spinner2 = 0;
-
+*/
 
  // call piston, need to know the function name
  //robot::drive backwards  (if we cannot hold two at once)

@@ -54,6 +54,8 @@ int booper;
 
 
   void Robot::driveControl(void *ptr) {
+//  Robot::Spinner1 = 127;
+
   while(true)
   {
     if(Controller1.get_digital(DIGITAL_R1)) {
@@ -141,4 +143,3 @@ int booper;
          drive(power, turn);
       }
     }
-}
