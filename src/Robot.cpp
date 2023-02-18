@@ -58,10 +58,13 @@ int booper;
 while (true) {
     if (Controller1.get_digital(DIGITAL_R1)) {
       Robot::Intake = 127;
+      Robot::Roller = 100;
     } else if (Controller1.get_digital(DIGITAL_R2)) {
       Robot::Intake = -127;
+      Robot::Roller = -100;
     } else {
       Robot::Intake = 0;
+      Robot::Roller = 0;
     }
     int booper;
     if (!Robot::Controller1.get_digital(DIGITAL_LEFT) && booper == 4.0) {
@@ -96,7 +99,7 @@ while (true) {
 
 
     if(Controller1.get_digital(DIGITAL_L2)) {
-       Robot::Spinner1 = -100;
+       Robot::Spinner1 = 100;
        Robot::Spinner2 = 100;
      }
      else {
@@ -105,7 +108,7 @@ while (true) {
      }
 
     if(Controller1.get_digital(DIGITAL_L1)) {
-        Robot::Spinner1 = -127;
+        Robot::Spinner1 = 127;
         Robot::Spinner2 = 127;
         }
       else {
