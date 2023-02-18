@@ -55,7 +55,31 @@ int booper;
 
   void Robot::driveControl(void *ptr) {
 //  Robot::Spinner1 = 127;
+while (true) {
+    if (Controller1.get_digital(DIGITAL_R1)) {
+      Robot::Intake = 127;
+    } else if (Controller1.get_digital(DIGITAL_R2)) {
+      Robot::Intake = -127;
+    } else {
+      Robot::Intake = 0;
+    }
+    int booper;
 
+    (Robot::Controller1.get_digital(DIGITAL_A) && booper == 1.0); {}
+
+    // 4-loop one button function
+    // extending
+//    Robot::pneumatics.set_value(0);
+//    booper = 2;
+//  } // <<<< This bracket signifies the end of the while loop
+//  booper = 3;
+//  if (!Robot::Controller1.get_digital(DIGITAL_LEFT) && booper == 2.0) {}
+//  if (Robot::Controller1.get_digital(DIGITAL_LEFT) && booper == 3.0) {
+    // retracting
+//    Robot::pneumatics.set_value(1);
+//    booper = 4;
+  }
+  /*
   while(true)
   {
     if(Controller1.get_digital(DIGITAL_R1)) {
@@ -84,23 +108,26 @@ int booper;
       // retracting
       Robot::pneumatics.set_value(1);
       booper = 4;
-     }
-     if (!Robot::Controller1.get_digital(DIGITAL_LEFT) && booper == 4.0) {
-     booper = 1;
-     }
-/*    if(Robot::Controller1.get_digital(DIGITAL_A)) {
+*/
+    }
+    if (!Robot::Controller1.get_digital(DIGITAL_LEFT) && booper == 4.0) {
+    booper = 1;
+    }
+
+
+    if(Robot::Controller1.get_digital(DIGITAL_A)) {
 
       Robot::pneumatics.set_value(1);
     }
     else {
       Robot::pneumatics.set_value(0);
     }
-*/
+
     if(Robot::Controller1.get_digital(DIGITAL_B)) {
 
       ;
 
-      //xhfjsahdkajsdgfkjasdghjg
+
     }
 
 /*
@@ -115,18 +142,20 @@ int booper;
       Robot::Spinner2 = 0;
     }
 */
-    if(Controller1.get_digital(DIGITAL_R1)) {
-      Robot::Intake = 127;
-      Robot::Roller = 100;
+  if(Controller1.get_digital(DIGITAL_R1)) {
+
+        Robot::Intake = 127;
+        Robot::Roller = 100;
+
     }
 
 
-     else if(Controller1.get_digital(DIGITAL_R2)) {
+      else if(Controller1.get_digital(DIGITAL_R2)) {
       Robot::Intake = -127;
-      Robot::Roller = 100;
+        Robot::Roller = 100;
     }
 
-    else {
+  else {
       Robot::Intake = 0;
       Robot::Roller = 0;
     }
@@ -137,7 +166,7 @@ int booper;
      }
      else {
        Robot::Spinner1 = 0;
-       Robot::Spinner2 = 0;
+       Robot::Spinner2 = 0;;
      }
      if(Robot::Controller1.get_digital(DIGITAL_X)) {
          int power = Robot::Controller1.get_analog(ANALOG_LEFT_Y);
