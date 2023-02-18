@@ -10,18 +10,18 @@ Controller Robot::Controller1(E_CONTROLLER_MASTER);
 
 //  back wheels
 Motor Robot::LeftBackWheel(16);
-Motor Robot::RightBackWheel(15);
+Motor Robot::RightBackWheel(6);
 // front wheels
 Motor Robot::LeftFrontWheel(20);
-Motor Robot::RightFrontWheel(11);
+Motor Robot::RightFrontWheel(10);
 
 //others
-Motor Robot::Intake(2);
-Motor Robot::Spinner1(1);
+Motor Robot::Intake(1);
+Motor Robot::Spinner1(2);
 Motor Robot::Spinner2(3, true);
-Motor Robot::Roller(10);
+Motor Robot::Roller(11);
 ADIDigitalOut Robot::pneumatics('A');
-
+//ADIDigitalOut Robot::pneumatics('B');
 
 std::map<std::string, std::unique_ptr<pros::Task>> Robot::tasks;
 std::atomic<double> Robot::x = 0;
@@ -77,8 +77,8 @@ int booper;
       Robot::pneumatics.set_value(0);
       booper = 2;
       }
-       booper = 3;
-       if (!Robot::Controller1.get_digital(DIGITAL_LEFT) && booper == 2.0) {
+      booper = 3;
+      if (!Robot::Controller1.get_digital(DIGITAL_LEFT) && booper == 2.0) {
      }
      if (Robot::Controller1.get_digital(DIGITAL_LEFT) && booper == 3.0) {
       // retracting
