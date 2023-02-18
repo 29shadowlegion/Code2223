@@ -132,8 +132,8 @@ int booper;
     }
 
     if(Controller1.get_digital(DIGITAL_L2)) {
-       Robot::Spinner1 = -100;
-       Robot::Spinner2 = -100;
+       Robot::Spinner1 = -127;
+       Robot::Spinner2 = -127;
      }
      else {
        Robot::Spinner1 = 0;
