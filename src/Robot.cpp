@@ -21,7 +21,7 @@ Motor Robot::Spinner1(2);
 Motor Robot::Spinner2(3, true);
 Motor Robot::Roller(11);
 ADIDigitalOut Robot::pneumatics('A');
-//ADIDigitalOut Robot::pneumatics('B');
+ADIDigitalOut Robot::expansion('B');
 
 std::map<std::string, std::unique_ptr<pros::Task>> Robot::tasks;
 std::atomic<double> Robot::x = 0;
@@ -58,7 +58,7 @@ int booper;
 while (true) {
     if (Controller1.get_digital(DIGITAL_R1)) {
       Robot::Intake = 127;
-      Robot::Roller = 100;
+    Robot::Roller = 100;
     } else if (Controller1.get_digital(DIGITAL_R2)) {
       Robot::Intake = -127;
       Robot::Roller = -100;
@@ -66,11 +66,12 @@ while (true) {
       Robot::Intake = 0;
       Robot::Roller = 0;
     }
+    /*
     int booper;
     if (!Robot::Controller1.get_digital(DIGITAL_LEFT) && booper == 4.0) {
     booper = 1;
     }
-
+*/
 
     if(Robot::Controller1.get_digital(DIGITAL_A)) {
 
@@ -80,40 +81,39 @@ while (true) {
       Robot::pneumatics.set_value(0);
     }
 
-//    if(Robot::Controller1.get_digital(DIGITAL_B)) {
+   if(Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_RIGHT) && Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_LEFT) && Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_UP) && Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_DOWN ))   {
+     Robot::expansion.set_value(1);
 
-
+}
 
 /*
     if(Robot::Controller1.get_digital(DIGITAL_X)) {
-      Robot::Spinner1 = -100;
-      Robot::Spinner2 = -100;
-      delay(100); // need to test this number
-      Robot::pneumatics.set_value(1);
-      delay(100);
-      Robot::pneumatics.set_value(0);
-      Robot::Spinner1 = 0;
-      Robot::Spinner2 = 0;
-    }
+
+     Robot::Roller = 120;
+     delay(80);
+     Robot::Roller = 0;
+     }
+
 */
 
 
-    if(Controller1.get_digital(DIGITAL_L2)) {
-       Robot::Spinner1 = 100;
-       Robot::Spinner2 = 100;
-     }
-     else {
-       Robot::Spinner1 = 0;
-       Robot::Spinner2 = 0;;
-     }
 
-    if(Controller1.get_digital(DIGITAL_L1)) {
-        Robot::Spinner1 = 127;
-        Robot::Spinner2 = 127;
+
+  if(Controller1.get_digital(DIGITAL_L2)) {
+        Robot::Spinner1 = -100;
+        Robot::Spinner2 = -100;
         }
       else {
         Robot::Spinner1 = 0;
-        Robot::Spinner2 = 0;;
+        Robot::Spinner2 = 0;
+
+    if(Controller1.get_digital(DIGITAL_L1)) {
+        Robot::Spinner1 = -127;
+        Robot::Spinner2 = -127;
+        }
+      else {
+        Robot::Spinner1 = 0;
+        Robot::Spinner2 = 0;
           }
 
 
@@ -121,15 +121,23 @@ while (true) {
          int power = Robot::Controller1.get_analog(ANALOG_LEFT_Y);
          int turn = Robot::Controller1.get_analog(ANALOG_RIGHT_X);
          drive(power, turn);
-
+         }
+/*
          if(Controller1.get_digital(DIGITAL_L1)) {
-            Robot::Spinner1 = 127;
-            Robot::Spinner2 = 127;
+            Robot::Spinner1 = -127;
+            Robot::Spinner2 = -127;
           }
           else {
             Robot::Spinner1 = 0;
             Robot::Spinner2 = 0;;
           }
+
+*/
+
+
+
+
+
 
 
 //    (Robot::Controller1.get_digital(DIGITAL_A) && booper == 1.0); {}
@@ -177,5 +185,4 @@ while (true) {
       booper = 4;
 */
 
-
-    }
+}

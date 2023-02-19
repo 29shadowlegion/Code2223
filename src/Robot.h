@@ -23,6 +23,7 @@ public:
   static Motor Spinner2;
   static Motor Roller;
 
+
   static std::map<std::string, std::unique_ptr<pros::Task>> tasks;
   static std::atomic<double> x;
 
@@ -30,6 +31,7 @@ public:
   static void end_task(string s);
   static bool task_exists(string s);
   static ADIDigitalOut pneumatics;
+  static ADIDigitalOut expansion;
 
 
   static void drive(int power, int turn);

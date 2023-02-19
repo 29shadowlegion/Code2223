@@ -76,6 +76,33 @@ void competition_initialize() {}
 
 
 void autonomous() {
+/*
+  Robot::Spinner1 = -127;
+  Robot::Spinner2 = -127;
+  delay(200);
+  Robot::pneumatics.set_value(1);
+  delay(50);
+  Robot::pneumatics.set_value(0);
+  delay(150);
+  Robot::pneumatics.set_value(1);
+  delay(50);
+  Robot::pneumatics.set_value(0);
+
+*/
+
+  Robot::RightFrontWheel = 100;
+  Robot::RightBackWheel = 100;
+  Robot::LeftBackWheel = 100;
+  Robot::LeftFrontWheel =100;
+  delay(10);
+  Robot::RightFrontWheel = 0;
+  Robot::RightBackWheel = 0;
+  Robot::LeftBackWheel = 0;
+  Robot::LeftFrontWheel =0;
+  Robot::Roller = 120;
+  delay(80);
+  Robot::Roller = 0;
+  //Robot::
   //Robot::drive( 10 ,0 ):
 
 
@@ -85,7 +112,7 @@ void autonomous() {
 
 
 
-
+/*
  Robot::Spinner1 = -127;
  Robot::Spinner2 = -127;
  delay(500); // need to test this number
@@ -94,6 +121,7 @@ void autonomous() {
  Robot::pneumatics.set_value(0);
  Robot::Spinner1 = 0;
  Robot::Spinner2 = 0;
+*/
 
 
  // call piston, need to know the function name
@@ -103,6 +131,4 @@ void autonomous() {
   //call intake at same time
  //repeat lines 60-63
  //idle lol idk
-
-
 }
