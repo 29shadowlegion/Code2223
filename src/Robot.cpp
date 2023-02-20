@@ -58,7 +58,7 @@ int booper;
 while (true) {
     if (Controller1.get_digital(DIGITAL_R1)) {
       Robot::Intake = 127;
-    Robot::Roller = 100;
+      Robot::Roller = 100;
     } else if (Controller1.get_digital(DIGITAL_R2)) {
       Robot::Intake = -127;
       Robot::Roller = -100;
@@ -126,6 +126,7 @@ while (true) {
          int turn = Robot::Controller1.get_analog(ANALOG_RIGHT_X);
          drive(power, turn);
          }
+       }
 /*
          if(Controller1.get_digital(DIGITAL_L1)) {
             Robot::Spinner1 = -127;
@@ -157,7 +158,7 @@ while (true) {
     // retracting
 //    Robot::pneumatics.set_value(1);
 //    booper = 4;
-  }
+
   /*
   while(true)
   {
