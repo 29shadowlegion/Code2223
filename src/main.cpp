@@ -76,6 +76,22 @@ void competition_initialize() {}
 
 
 void autonomous() {
+  Robot::RightFrontWheel = -100;
+  Robot::RightBackWheel = -100;
+  Robot::LeftBackWheel = 100;
+  Robot::LeftFrontWheel =100;
+  delay(200);
+  Robot::RightFrontWheel = 0;
+  Robot::RightBackWheel = 0;
+  Robot::LeftBackWheel = 0;
+  Robot::LeftFrontWheel =0;
+  Robot::Roller = -120;
+  delay(150);
+  Robot::Roller = 0;
+}
+
+
+
 /*
   Robot::Spinner1 = -127;
   Robot::Spinner2 = -127;
@@ -89,7 +105,7 @@ void autonomous() {
   Robot::pneumatics.set_value(0);
 
 */
-
+/*
   Robot::RightFrontWheel = 100;
   Robot::RightBackWheel = 100;
   Robot::LeftBackWheel = 100;
@@ -108,7 +124,7 @@ void autonomous() {
 
 //need to test this number
 
- /* Call spinner for ? seconds, be brief as I want very little distance. Need to test*/
+  Call spinner for ? seconds, be brief as I want very little distance. Need to test*/
 
 
 
@@ -121,7 +137,7 @@ void autonomous() {
  Robot::pneumatics.set_value(0);
  Robot::Spinner1 = 0;
  Robot::Spinner2 = 0;
-*/
+
 
 
  // call piston, need to know the function name
@@ -132,3 +148,4 @@ void autonomous() {
  //repeat lines 60-63
  //idle lol idk
 }
+*/

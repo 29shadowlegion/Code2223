@@ -81,10 +81,14 @@ while (true) {
       Robot::pneumatics.set_value(0);
     }
 
-   if(Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_RIGHT) && Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_LEFT) && Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_UP) && Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_DOWN ))   {
-     Robot::expansion.set_value(1);
+//   if(Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_RIGHT) && Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_LEFT) && Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_UP) && Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_DOWN ))   {
+//     Robot::expansion.set_value(1);
+//}
+     if(Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_UP)){
+       Robot::expansion.set_value(1);
+     }
 
-}
+
 
 /*
     if(Robot::Controller1.get_digital(DIGITAL_X)) {
