@@ -23,24 +23,6 @@ void initialize() {
   Robot::expansionright.set_value(0);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
  * Runs while the robot is in the disabled state of Field Management System or
  * the VEX Competition Switch, following either autonomous or opcontrol. When
@@ -77,6 +59,7 @@ void competition_initialize() {}
 
 
 void autonomous() {
+
   Robot::RightFrontWheel = -100;
   Robot::RightBackWheel = -100;
   Robot::LeftBackWheel = 100;
@@ -86,7 +69,7 @@ void autonomous() {
   Robot::RightBackWheel = 0;
   Robot::LeftBackWheel = 0;
   Robot::LeftFrontWheel =0;
-  Robot::Roller = -120;
+  Robot::Roller = 120;
   delay(150);
   Robot::Roller = 0;
 }

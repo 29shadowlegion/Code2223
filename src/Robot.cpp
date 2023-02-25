@@ -66,7 +66,7 @@ void Robot::driveControl(void *ptr) {
 while (true) {
 
 
-//  Robot::expansionleft.set_value(1);
+  Robot::expansionleft.set_value(1);
 
   int power = Robot::Controller1.get_analog(ANALOG_LEFT_Y);
   int turn = Robot::Controller1.get_analog(ANALOG_RIGHT_X);
