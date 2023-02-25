@@ -21,14 +21,17 @@ Motor Robot::Spinner1(2);
 Motor Robot::Spinner2(3, true);
 Motor Robot::Roller(11);
 ADIDigitalOut Robot::pneumatics('A');
-ADIDigitalOut Robot::expansionleft('B');
-ADIDigitalOut Robot::expansionright('C');
+ADIDigitalOut Robot::expansionleft('C');
+ADIDigitalOut Robot::expansionright('E');
 
 
 std::map<std::string, std::unique_ptr<pros::Task>> Robot::tasks;
 std::atomic<double> Robot::x = 0;
 
 bool Robot::task_exists(string s) {
+  Robot::Spinner1.set_brake_mode(MOTOR_BRAKE_COAST);
+  Robot::Spinner2.set_brake_mode(MOTOR_BRAKE_COAST);
+
   return tasks.find(s) != tasks.end();
 }
 
@@ -62,7 +65,8 @@ void Robot::driveControl(void *ptr) {
 
 while (true) {
 
-  Robot::expansionleft.set_value(1);
+
+//  Robot::expansionleft.set_value(1);
 
   int power = Robot::Controller1.get_analog(ANALOG_LEFT_Y);
   int turn = Robot::Controller1.get_analog(ANALOG_RIGHT_X);
@@ -97,6 +101,7 @@ while (true) {
     if (Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_LEFT)){
       Robot::expansionleft.set_value(1);
       Robot::expansionright.set_value(1);
+
     }
 
 /*
@@ -125,7 +130,7 @@ while (true) {
 
 
 
-    if(Controller1.get_digital(DIGITAL_L1)) {
+    if(Controller1.get_digital(DIGITAL_L2)) {
         Robot::Spinner1 = -127;
         Robot::Spinner2 = -127;
         }

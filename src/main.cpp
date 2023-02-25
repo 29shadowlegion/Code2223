@@ -19,7 +19,8 @@ void on_center_button() {
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
-
+  Robot::expansionleft.set_value(0);
+  Robot::expansionright.set_value(0);
 }
 
 
