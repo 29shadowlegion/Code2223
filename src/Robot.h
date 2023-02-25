@@ -31,7 +31,8 @@ public:
   static void end_task(string s);
   static bool task_exists(string s);
   static ADIDigitalOut pneumatics;
-  static ADIDigitalOut expansion;
+  static ADIDigitalOut expansionleft;
+  static ADIDigitalOut expansionright;
 
 
   static void drive(int power, int turn);
