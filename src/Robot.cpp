@@ -53,9 +53,12 @@ void Robot::drive(int power, int turn) {
 int booper;
 
 
-  void Robot::driveControl(void *ptr) {
+void Robot::driveControl(void *ptr) {
 //  Robot::Spinner1 = 127;
 while (true) {
+  int power = Robot::Controller1.get_analog(ANALOG_LEFT_Y);
+  int turn = Robot::Controller1.get_analog(ANALOG_RIGHT_X);
+  drive(power, turn);
     if (Controller1.get_digital(DIGITAL_R1)) {
       Robot::Intake = 127;
       Robot::Roller = 100;
@@ -81,9 +84,9 @@ while (true) {
       Robot::pneumatics.set_value(0);
     }
 
-//   if(Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_RIGHT) && Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_LEFT) && Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_UP) && Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_DOWN ))   {
-//     Robot::expansion.set_value(1);
-//}
+    if(Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_RIGHT) && Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_LEFT) && Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_UP) && Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_DOWN ))   {
+     Robot::expansion.set_value(1);
+}
      if(Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_UP)){
        Robot::expansion.set_value(1);
      }
@@ -122,9 +125,7 @@ while (true) {
 
 
 
-         int power = Robot::Controller1.get_analog(ANALOG_LEFT_Y);
-         int turn = Robot::Controller1.get_analog(ANALOG_RIGHT_X);
-         drive(power, turn);
+
          }
        }
 /*
