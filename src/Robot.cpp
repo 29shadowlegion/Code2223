@@ -31,6 +31,12 @@ std::atomic<double> Robot::x = 0;
 bool Robot::task_exists(string s) {
   Robot::Spinner1.set_brake_mode(MOTOR_BRAKE_COAST);
   Robot::Spinner2.set_brake_mode(MOTOR_BRAKE_COAST);
+  Robot::LeftBackWheel.set_brake_mode(MOTOR_BRAKE_COAST);
+  Robot::RightBackWheel.set_brake_mode(MOTOR_BRAKE_COAST);
+  Robot::LeftFrontWheel.set_brake_mode(MOTOR_BRAKE_COAST);
+  Robot::RightFrontWheel.set_brake_mode(MOTOR_BRAKE_COAST);
+
+
 
   return tasks.find(s) != tasks.end();
 }
@@ -66,8 +72,6 @@ void Robot::driveControl(void *ptr) {
 while (true) {
 
 
-  Robot::expansionleft.set_value(1);
-
   int power = Robot::Controller1.get_analog(ANALOG_LEFT_Y);
   int turn = Robot::Controller1.get_analog(ANALOG_RIGHT_X);
   drive(power, turn);
@@ -77,7 +81,7 @@ while (true) {
     }
      else if (Controller1.get_digital(DIGITAL_R2)) {
       Robot::Intake = -127;
-      Robot::Roller = -100;
+      Robot::Roller = -85;
     }
     else {
       Robot::Intake = 0;
@@ -101,6 +105,8 @@ while (true) {
     if (Robot::Controller1.get_digital(E_CONTROLLER_DIGITAL_LEFT)){
       Robot::expansionleft.set_value(1);
       Robot::expansionright.set_value(1);
+
+
 
     }
 
