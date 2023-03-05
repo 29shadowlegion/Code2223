@@ -35,8 +35,8 @@ bool Robot::task_exists(string s) {
   Robot::RightBackWheel.set_brake_mode(MOTOR_BRAKE_COAST);
   Robot::LeftFrontWheel.set_brake_mode(MOTOR_BRAKE_COAST);
   Robot::RightFrontWheel.set_brake_mode(MOTOR_BRAKE_COAST);
-
-
+  Robot::Intake.set_brake_mode(MOTOR_BRAKE_COAST);
+  Robot::Roller.set_brake_mode(MOTOR_BRAKE_COAST);
 
   return tasks.find(s) != tasks.end();
 }
@@ -171,7 +171,5 @@ while (true) {
     // retracting
 //    Robot::pneumatics.set_value(1);
 //    booper = 4;
-
-//‪(530) 382-8440‬
 
 }
